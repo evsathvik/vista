@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-forest: #18230F;
+  --color-lime: #255F38;
+  --color-emerald: #1F7D53;
+  --color-moss: #27391C;
+  --color-cream: #F2E2B1;
+}
+
+@layer base {
+  body {
+    @apply bg-white min-h-screen text-black;
+  }
+
+  input, select, textarea {
+    @apply bg-white border-emerald/20 text-black placeholder-gray-500 !important;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    @apply ring-lime/30 border-lime/30 !important;
+  }
+
+  input:hover, select:hover, textarea:hover {
+    @apply border-lime/40 transition-colors duration-300 !important;
+  }
+
+  button {
+    @apply transition-all duration-300 !important;
+  }
+
+  button:hover {
+    @apply transform scale-105 !important;
+  }
+
+  .assessment-card {
+    @apply bg-forest/10 backdrop-blur-sm border border-emerald/20 rounded-lg p-6 transition-all duration-300;
+  }
+
+  .assessment-card:hover {
+    @apply border-lime/30 transform scale-[1.02] shadow-lg shadow-emerald/10;
+  }
+
+  .progress-bar {
+    @apply bg-forest/10 rounded-full h-2 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+
+  .input-group {
+    @apply relative;
+  }
+
+  .input-group input {
+    @apply pl-10;
+  }
+
+  .input-group svg {
+    @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-forest/50;
+  }
+
+  .floating-label {
+    @apply absolute left-3 top-1/2 transform -translate-y-1/2 transition-all duration-200 pointer-events-none text-gray-500;
+  }
+
+  input:focus ~ .floating-label,
+  input:not(:placeholder-shown) ~ .floating-label {
+    @apply -translate-y-8 text-xs text-lime/70;
+  }
+}
